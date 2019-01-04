@@ -5,15 +5,8 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="django的ORM技术, 终于等到你">
-    <meta name="description" content="ORM技术
-对象关系映射：将模型中的语句映射为数据库中的语句，可以通过编写模型中的语句对数据库(多种)进行操作
-
-通过模型对数据库进行增删查改
-我们这里以一个存有学生表的数据库为例，该学生表的内容如下:
-
-创建/插入
-方法一：  Stude">
+    <meta name="keywords" content="git基本操作, 终于等到你">
+    <meta name="description" content="git常用指令1.基本指令git init &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; ——  新建git本地仓库git add 文件/文件夹 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; ——  将文件添">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -21,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>django的ORM技术 | 终于等到你</title>
+    <title>git基本操作 | 终于等到你</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -276,13 +269,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        django的ORM技术
+                        git基本操作
                     </div>
                 </div>
             </div>
@@ -302,8 +295,8 @@
             
             <div class="article-tag">
                 
-                <a href="/tags/django/" target="_blank">
-                    <span class="chip bg-color">django</span>
+                <a href="/tags/git/" target="_blank">
+                    <span class="chip bg-color">git</span>
                 </a>
                 
             </div>
@@ -314,15 +307,15 @@
                 <!--<span class="post-cate" style="margin-right: 0px">-->
                     <i class="fa fa-bookmark fa-fw icon-category"></i>
                     
-                    <a href="/categories/django的模型语句/" class="post-category" target="_blank">
-                        django的模型语句
+                    <a href="/categories/git的使用/" class="post-category" target="_blank">
+                        git的使用
                     </a>
                     
                 </span>
                 
 
                 <span class="post-date">
-                    <i class="fa fa-clock-o fa-fw"></i>2018-12-28
+                    <i class="fa fa-clock-o fa-fw"></i>2018-12-25
                 </span>
 				
 				
@@ -334,73 +327,17 @@
         <hr>
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="ORM技术"><a href="#ORM技术" class="headerlink" title="ORM技术"></a>ORM技术</h2><ul>
-<li>对象关系映射：将模型中的语句映射为数据库中的语句，可以通过编写模型中的语句对数据库(多种)进行操作</li>
-</ul>
-<h2 id="通过模型对数据库进行增删查改"><a href="#通过模型对数据库进行增删查改" class="headerlink" title="通过模型对数据库进行增删查改"></a>通过模型对数据库进行增删查改</h2><ul>
-<li>我们这里以一个存有学生表的数据库为例，该学生表的内容如下:<br><img src="/images/Djangotest1.png" alt="djangotest1"></li>
-</ul>
-<h3 id="创建-插入"><a href="#创建-插入" class="headerlink" title="创建/插入"></a>创建/插入</h3><ul>
-<li><p>方法一：<br>  Student.objects.create(字段1=值1, 字段2=值2)</p>
-<pre><code>  Student.objects.create(s_name=&#39;小黄&#39;)
-</code></pre></li>
-<li><p>方法二：<br>模型对象.save()</p>
-<pre><code>    stu = Student()
-   stu.s_name = &#39;胡一菲&#39;
-   stu.s_gender = 0
-   stu.s_age = 26
-   stu.save()
-</code></pre></li>
-</ul>
-<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><ul>
-<li>Student.objects.filter(条件).delete()<pre><code>  Student.objects.filter(id=3).delete()
-</code></pre></li>
-</ul>
-<h3 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h3><ul>
-<li><p>方式一：<br>  Student.objects.filter(条件).update(字段1=值1, 字段2=值2)</p>
-<pre><code>  Student.objects.filter(id=4).update(s_name=&#39;妲己&#39;)
-</code></pre></li>
-<li><p>方式二：<br>  Student.save()</p>
-<pre><code>     stu = Student.objects.filter(id=2).first()
-    stu.s_gender = 0
-    stu.save()
-</code></pre></li>
-<li><p><strong><em>注意：</em></strong>方式一不会更新auto_now字段，方式二会更新auto_now字段，所以通常情况下使用方式二</p>
-</li>
-</ul>
-<h3 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h3><p>查询的内容较为复杂，以下为整理过后的主要内容：</p>
-<ul>
-<li>Student.objects.all() —— 查询所有学生</li>
-<li>Student.objects.filter(条件).first() —— 查询满足条件的对象（查询结果是一个列表，第一个元素才是学生对象）</li>
-<li>Student.objects.get(条件) ——— 查询出满足条件的对象（条件必须是唯一性约束，并且是有效条件）</li>
-<li>Student.objects.exclude(条件) ———- 查询出不满足括号内条件的信息</li>
-<li>Student.objects.order_by(id) ———- 按id值升序排列</li>
-<li>Student.objects.order_by(-id) ———- 按id值降序排列</li>
-<li>Student.objects.all().values(字段1) ——– 查询指定字段（不加字段就查询所有的字段）</li>
-<li>Student.objects.filter(s_name=’小张’).exists() ——— 判断指定字段是否存在</li>
-<li>Student.objects.filter(s_gender=1).count() ———— 查询指定条件的对象的个数<h4 id="模糊查询"><a href="#模糊查询" class="headerlink" title="模糊查询"></a>模糊查询</h4></li>
-<li>Student.objects.filter(s_name__contains=’胡’) ———- 将姓名中包含‘胡’字段的对象查询出来</li>
-<li>Student.objects.filter(s_name__startswith=’雷’) ——– 查询姓名以‘雷’开始的对象</li>
-<li>Student.objects.filter(s_name__endswith=’霞’) ———- 查询姓名以‘霞’结尾的对象</li>
-<li>Student.objects.filter(id__in=[1, 2, 3, 4, 5, 6, 7]) ——- 查询id在指定列表中的对象</li>
-<li>Student.objects.filter(pk__in=[1, 2, 3, 4, 5, 6, 7]) ——- ‘pk’指的是primary key,查询结果和使用id的查询结果相同</li>
-</ul>
-<h4 id="gte-lte-大于等于-小于等于-–-greater-littler-than-equal"><a href="#gte-lte-大于等于-小于等于-–-greater-littler-than-equal" class="headerlink" title="gte/lte:大于等于/小于等于 – greater/littler than equal"></a>gte/lte:大于等于/小于等于 – greater/littler than equal</h4><h4 id="gt-lt-大于-小于-–-greater-littler-than"><a href="#gt-lt-大于-小于-–-greater-littler-than" class="headerlink" title="gt/lt:大于/小于 – greater/littler than"></a>gt/lt:大于/小于 – greater/littler than</h4><ul>
-<li>Student.objects.filter(s_age__gte=22, s_age__lte=24) ——– 查询年龄在22到24之间的对象</li>
-</ul>
-<h4 id="聚合函数-aggregate-—-聚合"><a href="#聚合函数-aggregate-—-聚合" class="headerlink" title="聚合函数:aggregate() — 聚合"></a>聚合函数:aggregate() — 聚合</h4><ul>
-<li>导入模块：from django.db.models import Avg, Sum, Count, Max, Min</li>
-<li>Student.objects.all().aggregate(Avg(‘s_age’)) —— 查询所有学生的平均年龄</li>
-<li>Student.objects.all().aggregate(Sum(‘s_age’)) —— 查询所有学生的年龄的和<h4 id="用Q-封装比较运算符"><a href="#用Q-封装比较运算符" class="headerlink" title="用Q()封装比较运算符"></a>用Q()封装比较运算符</h4></li>
-<li>stus = Student.objects.filter(Q(s_age__gte=20) or Q(s_age__lte=22)) — 或运算</li>
-<li>stus = Student.objects.filter(Q(s_age__gte=20) | Q(s_age__lte=22)) — 或运算</li>
-<li>stus = Student.objects.filter(Q(s_age__gte=20) and Q(s_age__lte=22)) — 与运算</li>
-<li>stus = Student.objects.filter(Q(s_age__gte=20) &amp; Q(s_age__lte=22)) — 与运算</li>
-<li>stus = Student.objects.filter(Q(s_age__gte=20), Q(s_age__lte=22)) — 与运算</li>
-<li>stus = Student.objects.filter(~Q(s_age__gte=21)) — 非运算<h4 id="F-可用于比较两个字段（支持加减运算）"><a href="#F-可用于比较两个字段（支持加减运算）" class="headerlink" title="F()可用于比较两个字段（支持加减运算）"></a>F()可用于比较两个字段（支持加减运算）</h4></li>
-<li>Student.objects.filter(physical__gt=F(‘math’)) ——- 查询物理成绩大于数学成绩的学生对象</li>
-<li>Student.objects.filter(physical__gt=F(‘math’) + 10) —– 查询物理成绩比数学成绩多十分以上的学生对象</li>
-</ul>
+                <h1 id="git常用指令"><a href="#git常用指令" class="headerlink" title="git常用指令"></a>git常用指令</h1><h2 id="1-基本指令"><a href="#1-基本指令" class="headerlink" title="1.基本指令"></a>1.基本指令</h2><p><code>git init</code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ——  新建git本地仓库<br><code>git add 文件/文件夹</code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ——  将文件添加到缓存区中<br><code>git add -A</code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; — 添加所有内容到缓存区中<br><code>git status</code> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;———    查看git状态<br><code>git commit -m  ‘提交信息’</code>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;——  将缓存区中的全部内容提交到git本地仓库中  </p>
+<p><code>git log</code>   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;——-    查看提交日志  </p>
+<p><code>git reset  - - hard   HEAD</code>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;——   让工作目录中的内容和仓库中的内容保持一致<br><code>git reset  --hard HEAD^</code>   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;——  回到上一个版本<br><code>git  reset  - - hard 版本号</code>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;——  回到指定的版本<br><code>git checkout  - -  文件名</code>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ——  从暂存区中恢复工作目录中的内容(让工作区中的指定文件，回到上次提交的时候的状态)  </p>
+<p><code>git clone &lt;url&gt;</code> - 将服务器上的项目(仓库)克隆 (使用https地址需要输入密码，使用ssh地址需要添加公钥)  </p>
+<p><code>git remote add origin 地址</code>      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;—– 关联远程仓库(只需要关联一次)</p>
+<p><code>git push [-u] origin master</code>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;—– 提交(-u在第一次提交分之的时候才用)  </p>
+<h2 id="2-分之管理"><a href="#2-分之管理" class="headerlink" title="2.分之管理"></a>2.分之管理</h2><p>创建仓库会默认给我们创建一个master分之,这个分之一般作为提交和发布分之;开发一般会自己创建一个develop分之，用来开发和测试;多人协作的时候还可能根据不同的人或者(不同的功能)创建不同的分之，用来独立开发  </p>
+<p>常见分之： master(主要是合并develop), develop(主要合并下面的其他分支), 功能/人员分之(开发)  </p>
+<p><code>git branch [-a]</code>   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        - 查看分之<br><code>git branch 分之名</code>        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 创建分之<br><code>git checkout   分支名</code>        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-   切换分之<br><code>git checkout -b 分之名</code>        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    - 切换并创建新的分之<br><code>git diff    分之1  分之2</code>        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 查看两个分之之间的差异<br><code>git merge 分之名</code>            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- 让当前分之和指定分之进行合并     </p>
+<p>注意: 切换分之、push、pull，这些操作前要保证工作区是clean  </p>
+<p>避免冲突：  不要发生多个分之对同一个文件在同一个版本下进行修改(和同伴确认和商量)</p>
 
             </div>
             <hr>
@@ -539,7 +476,7 @@
                     <span class="reprint-tip">Reprint please specify: </span>
                     <a href="http://yoursite.com" class="b-link-green">终于等到你</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2018/12/28/django-de-orm-ji-zhu/" class="b-link-green">django的ORM技术</a>
+                    <a href="/2018/12/25/git-chang-yong-zhi-ling/" class="b-link-green">git基本操作</a>
                 </p>
             </div>
         </div>
@@ -561,58 +498,7 @@
     <div class="row article-row">
         
         <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">Current</div>
-            <div class="card">
-                <a href="/2018/12/28/django-de-orm-ji-zhu/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="django的ORM技术">
-                        
-                        <span class="card-title">django的ORM技术</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary">ORM技术
-对象关系映射：将模型中的语句映射为数据库中的语句，可以通过编写模型中的语句对数据库(多种)进行操作
-
-通过模型对数据库进行增删查改
-我们这里以一个存有学生表的数据库为例，该学生表的内容如下:
-
-创建/插入
-方法一：  Stude</div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-28
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/django的模型语句/" class="post-category" target="_blank">
-                                    django的模型语句
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/django/" target="_blank">
-                        <span class="chip bg-color">django</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">Next</div>
+            <div class="article-badge left-badge text-color">Previous</div>
             <div class="card">
                 <a href="/2018/12/26/nginx-fu-wu-qi-an-zhuang/">
                     <div class="card-image">
@@ -629,9 +515,9 @@
 2. 安装nginxa) 添加nginx存储库  
     yum in</div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-26
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-26
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -649,6 +535,55 @@
                     
                     <a href="/tags/Nginx/" target="_blank">
                         <span class="chip bg-color">Nginx</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">Next</div>
+            <div class="card">
+                <a href="/2018/12/22/blog-setting/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="blog_setting介绍">
+                        
+                        <span class="card-title">blog_setting介绍</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">特性
+简单漂亮，文章内容美观易读
+Material Design设计
+响应式设计，博客在桌面端、平板、手机等设备上均能很好的展现
+每天动态切换Banner图片
+瀑布流式的博客文章列表(文章无特色图片时会有24张漂亮的图片代替)
+时间轴式的归</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2018-12-22
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/blog搭建/" class="post-category" target="_blank">
+                                    blog搭建
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/blog/" target="_blank">
+                        <span class="chip bg-color">blog</span>
                     </a>
                     
                 </div>
